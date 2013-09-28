@@ -1,0 +1,28 @@
+.__wsmsg_msg_class{
+	position: fixed;
+	bottom: 20px;
+	left: -100%;
+	width: 80%;
+	padding: 10px 0 10px 0;
+	opacity: 0.01;
+	
+	background-color: rgba(33,33,33,0.8);
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 16px;
+	z-index: 200;
+	
+	-webkit-border-radius : 10px;
+	-moz-border-radius : 10px;
+	-o-border-radius : 10px;
+	-ms-border-radius : 10px;
+	border-radius : 10px;
+}
+
+@-webkit-keyframes __wsmsg_msg_animate{
+	0%{opacity:0;left: -100%;}
+	5%{opacity:1;left: 40%;}
+	95%{opacity:1;left: 40%;}
+	100%{opacity:0;left: 100%;}
+}
+

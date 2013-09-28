@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/client.js"></script>
+</head>
+<body>
+	<div id="dsppsnid" title="person id"></div>
+	<img id="dsppsnimg" src="" />
+	<div id="dspnickname" title="nickname"></div>
+	<div id="dsprooms" title="entered rooms"></div>
+	<div id="dspdashimgs" title="dash board images"></div>
+	<div id="dspmates"></div>
+	<div id="dsproomid"></div>
+	<h1>wsmsg test contents</h1>
+	<input type="button" value="start" onclick="server.start();" /><br/>
+	<input placeholder="person id" type="text" id="pid" /><input type="button" value="start with id" onclick="server.start(document.getElementById('pid').value);" /><br/>
+	<input placeholder="room id" type="text" id="cname" /><input placeholder="person id" type="text" id="psnid" /><input type="button" value="make new chat" onclick="server.newchat(document.getElementById('cname').value, document.getElementById('psnid').value);" /><br/>
+	<input placeholder="room id" type="text" id="cid01" /><input placeholder="person id" type="text" id="pid01" /><input type="button" value="enter the room" onclick="server.enter(document.getElementById('cid01').value, document.getElementById('pid01').value);" /><br/>
+	<input placeholder="room id" type="text" id="cid02" /><input placeholder="person id" type="text" id="pid02" /><input placeholder="nickname" type="text" id="nck02" /><textarea placeholder="message text/html" id="txt02"></textarea><input placeholder="white list separated by ," type="text" id="wlist02" /><input type="button" value="send message" onclick="server.send(document.getElementById('pid02').value, document.getElementById('nck02').value, document.getElementById('cid02').value, document.getElementById('txt02').value, document.getElementById('wlist02').value.split(','));" /><br/>
+	<div id="personmng">
+		<input placeholder="person id" type="text" id="pid03" />
+		nickname: <input placeholder="nickname" type="text" id="nickname03" /><br/>
+		<!--input type="file" id="pimage03"/-->
+		<div id="pimg03" ondragover="dragOver(event);" ondrop="dropPersonImage(event);" style="width: 120px; min-height: 120px; border: solid 1px #888888;">
+		</div>
+		<input type="button" value="update personal" onclick="updatePerson();"/><br/>
+	</div>
+	<div id="dashboard">
+		<input placeholder="person id" type="text" id="pid04" />
+		<div id="dropimg04" ondragover="dragOver(event);" ondrop="dropDashImage(event);" style="width: 120px; min-height: 120px; border: solid 1px #888888;">
+		</div>
+	</div>
+	<input placeholder="room id" type="text" id="cid05" /><input placeholder="person id" type="text" id="pid05" /><input type="button" value="exit the room" onclick="server.exit(document.getElementById('cid05').value, document.getElementById('pid05').value);" /><br/>
+	<div id="console"></div>
+</body>
+<script type="text/javascript">
+var pmng = {};
+pmng.psnid = '';
+pmng.nickname = '';
+pmng.file = '';
+pmng.name = '';
+pmng.type = '';
+pmng.size = '';
+
+var server = new Wsmsg({host: location.hostname, port: 3000});
+server.open();
+function updatePerson(){
+	var nn = document.getElementById("nickname03");
+	pmng.nickname = nn.value;
+	pmng.psnid = document.getElementById("pid03").value;
+	server.personman(pmng.psnid, pmng.nickname, pmng.file, pmng.name, pmng.type, pmng.size);
+}
+function dropPersonImage(evt){
+	var files = evt.dataTransfer.files;
+	var disp = document.getElementById("pimg03");
+//	var finput = document.getElementById("pimage03");
+	disp.innerHTML = '';
+	for (var i = 0; i < files.length; i++) {
+		var f = files[i];
+		if (!f.type.match('image.*'))continue;
+		var reader = new FileReader();
+		reader.onerror = function (evt) {
+			disp.innerHTML += "読み取り時にエラーが発生しました。";
+		}
+		reader.onload = function (evt) {
+			var img = document.createElement('img');
+			img.src = evt.target.result;
+			disp.appendChild(img);
+			
+			pmng.file = evt.target.result;
+		};
+		pmng.name = f.name;
+		pmng.type = f.type;
+		pmng.size = f.size;
+		reader.readAsDataURL(f);
+		disp.innerHTML += "ファイル名 :" + f.name + "ファイルの型:" + f.type + "ファイルサイズ:" + f.size / 1000 + " KB " + "<br />";
+	}
+	evt.preventDefault();
+}
+function dropDashImage(evt){
+	var files = evt.dataTransfer.files;
+	var finput = document.getElementById("dropimg04");
+	finput.innerHTML = '';
+	for (var i = 0; i < files.length; i++) {
+		var f = files[i];
+		if (!f.type.match('image.*'))continue;
+		var reader = new FileReader();
+		reader.onerror = function (evt) {
+			finput.innerHTML = "読み取り時にエラーが発生しました。";
+		}
+		reader.onload = function (evt) {
+			var img = document.createElement('img');
+			img.src = evt.target.result;
+			finput.appendChild(img);
+			
+			pmng.file = evt.target.result;
+			
+			pmng.psnid = document.getElementById("pid04").value;
+			server.upimg(pmng);
+		};
+		pmng.name = f.name;
+		pmng.type = f.type;
+		pmng.size = f.size;
+		reader.readAsDataURL(f);
+		finput.innerHTML += "ファイル名 :" + f.name + "ファイルの型:" + f.type + "ファイルサイズ:" + f.size / 1000 + " KB " + "<br />";
+	}
+	evt.preventDefault();
+}
+function dragOver(evt){
+	evt.preventDefault();
+}
+</script>
+</html>

@@ -1,0 +1,294 @@
+body{
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	min-height: 400px;
+	background-color: rgba(23, 138, 118, 1);
+	padding: 0 3px 0 0;
+	margin: 0;
+	overflow: hidden;
+}
+input[type=text]{
+	border: solid 1px rgba(15, 87, 74, 1);
+	padding: 3px 0 1px 3px;
+	font-size: 11px;
+	-webkit-border-radius : 3px;
+	border-radius : 3px;
+}
+h3{
+	color: #F6FFF6;
+	font-size: 12px;
+}
+.clearfix:after{
+	content: ".";
+	display: block;
+	visibility: hidden;
+	height: 0.1px;
+	font-size: 0.1em;
+	line-height: 0;
+	clear:both;
+}
+#_wsmsg_body{
+}
+#setting{
+	background-color: rgba(53, 168, 148, 1);
+	width: 230px;
+	height: 400px;
+	float: left;
+	position: absolute;
+	margin-left: -200px;
+	z-index: 5;
+	
+	-webkit-border-top-right-radius : 6px;
+	-webkit-border-bottom-right-radius : 6px;
+	border-top-right-radius : 6px;
+	border-bottom-right-radius : 6px;
+}
+#settingicon{
+	width: 30px;
+	float: right;
+	cursor: pointer;
+}
+#usericon{
+	background-color: rgba(22, 158, 124, 1);
+	border: solid 1px rgba(14, 103, 81, 1);
+	-webkit-border-radius : 3px;
+	border-radius : 3px;
+	width: 70px;
+	height: 70px;
+	margin: 0 0 0 60px;
+	overflow: hidden;
+	
+	font-size: 11px;
+}
+#username{
+	margin: 5px 0 0 10px;
+}
+#nickname{
+	width: 180px;
+}
+#roomsetting{
+	padding: 0 0 0 5px;
+}
+#chttitle a:link{
+	color: #F6FFF6;
+	font-size: 12px;
+}
+#chttitle a:visited{
+	color: #F6FFF6;
+	font-size: 12px;
+}
+#chttitle a:hover{
+	color: #E6EEE6;
+	font-size: 12px;
+}
+#newroom{
+	margin: 3px 0 0 0;
+}
+#newroomicon{
+	width: 15px;
+}
+#newchatname{
+	width: 100px;
+}
+#newchat{
+	width: 45px;
+}
+#enterroom{
+	margin: 3px 0 0 0;
+}
+#enterchatid{
+	width: 130px;
+}
+#enterchat{
+	width: 45px;
+}
+#rooms{
+	overflow-y: scroll;
+	height: 160px;
+	width: 195px;
+}
+#rooms ul{
+	list-style-type: none;
+	font-size: 11px;
+	padding: 0 0 0 5px;
+}
+#rooms li{
+	margin-bottom: 3px;
+}
+
+
+
+#room{
+	width: 230px;
+	margin-left: 35px;
+}
+#chatid{
+	font-size: 11px;
+	color: rgba(163, 33, 91, 1);
+	height: 19px;
+	margin: 3px 0 3px 5px;
+	padding: 3px 0 0 5px;
+	border: solid 1px rgba(26, 149, 128, 1);
+	background-color: rgba(136, 251, 193, 1);
+	-webkit-border-radius : 3px;
+	border-radius : 3px;
+}
+#chatname{
+	font-size: 11px;
+	color: #F6FFF6;
+	margin: 3px 0 3px 0;
+	padding: 3px 0 3px 5px;
+}
+.memdiv{
+	width: 20px;
+	height: 20px;
+	border: solid 1px #AAAAAA;
+	overflow: hidden;
+	margin: 0 0 5px 5px;
+	float: left;
+}
+.memimg{
+	width: 20px;
+}
+.memspn{
+	font-size: 10px;
+}
+#chats{
+	background-color: #FBFBFB;
+	color: #222222;
+	width: 230px;
+	height: 300px;
+	-webkit-border-radius : 6px;
+	border-radius : 6px;
+	box-shadow: 1px 1px 1px 1px inset;
+}
+#chatcontainer{
+	width: 230px;
+	overflow: hidden;
+}
+.talkitem{
+	margin: 0 0 5px 2px;
+	border-top: solid 1px #AAAAAA;
+}
+.talkimgframe{
+	width: 30px;
+	height: 30px;
+	border: solid 1px #AAAAAA;
+	overflow: hidden;
+	margin: 3px 0 0 10px;
+	float: left;
+}
+.talkimg{
+	width: 30px;
+}
+.talknickname{
+	font-size: 10px;
+	color: #409940;
+	margin: 12px 0 0 3px;
+	float: left;
+	min-width: 50px;
+}
+.talkdelbtn{
+}
+.talkmessage{
+	font-size: 11px;
+	color: #222222;
+	margin-left: 10px;
+}
+.talkgood{
+	float: right;
+	margin: 1px 0 0 0;
+}
+.talkalert{
+	float: right;
+	margin: 1px 0 0 0;
+}
+.gimg{
+	width: 11px;
+	cursor: pointer;
+}
+.gspn{
+	font-size: 11px;
+	color: #0E8300;
+}
+.aimg{
+	width: 11px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+.aspn{
+	font-size: 11px;
+	color: #8B8D08;
+	margin-right: 10px;
+}
+.talkimga{
+	border: 0;
+	cursor: pointer;
+}
+
+#console{
+	height: 70px;
+}
+#imggal{
+	background-color: #F0FFF0;
+	margin: 5px 0 0 0;
+}
+#imgview{
+	-webkit-border-radius : 6px;
+	border-radius : 6px;
+	height: 75px;
+}
+#imgcntn{
+	height: 60px;
+	padding: 5px 0 5px 0;
+}
+#imgcntn img{
+	width: 60px;
+}
+.imgicon{
+	width: 60px;
+	height: 60px;
+	-webkit-border-radius : 6px;
+	border-radius : 6px;
+	overflow: hidden;
+	margin: 0 8px 0 8px;
+	float: left;
+}
+#dummyimg{
+	width: 60px;
+	height: 60px;
+	margin: 0 auto;
+	background-color: rgba(200, 200, 200, 1);
+	border: solid 1px rgba(150, 150, 150, 1);
+	-webkit-border-radius : 3px;
+	border-radius : 3px;
+	font-size: 9px;
+}
+#newtext{
+	width: 170px;
+}
+#sendnewmessage{
+	width: 45px;
+}
+
+
+#msg{
+	position: fixed;
+	top: 20px;
+	left: -100%;
+	width: 80%;
+	padding: 10px 0 10px 0;
+	opacity: 0.01;
+	
+	background-color: rgba(33,33,33,0.8);
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 12px;
+	z-index: 200;
+	
+	-webkit-border-radius : 10px;
+	-moz-border-radius : 10px;
+	-o-border-radius : 10px;
+	-ms-border-radius : 10px;
+	border-radius : 10px;
+}
+

@@ -1,0 +1,23 @@
+{
+  "name": "wsmsg",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "socket.io": "0.9.16"
+  },
+  "description": "interactive chat application",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snoritomo/wsmsg.git"
+  },
+  "author": "Noritomo Suzuki",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/snoritomo/wsmsg/issues"
+  }
+}
